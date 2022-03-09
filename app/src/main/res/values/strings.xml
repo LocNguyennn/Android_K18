@@ -12,4 +12,6 @@
     <string name="num8">8\n<font size="10">T U V</font></string>
     <string name="num9">9\n<font size="10">W X Y Z</font></string>
     <string name="num0">0</string>
+    <string name="welcome_to_n_foodhub">Welcome to\n <font fgcolor="#FE724C">FoodHub</font></string>
+    <string name="already_have_an_account_sign_in">Already have an account? <u><b>Sign in</b></u></string>
 </resources>
