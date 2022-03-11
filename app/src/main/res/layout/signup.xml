@@ -163,34 +163,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="38dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="29dp"
-        app:layout_constraintStart_toStartOf="@+id/view2"
-        app:layout_constraintTop_toBottomOf="@+id/textView10"
-        app:srcCompat="@drawable/_365px_facebook_f_logo__2019__svg" />
-
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="54dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/Sofia_Pro_Medium_Az"
         android:text="Sign up with"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="38dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="163dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/imageView5"
-        app:srcCompat="@drawable/ti_xung" />
 
     <View
         android:id="@+id/view2"
@@ -202,29 +185,65 @@
         app:layout_constraintEnd_toStartOf="@+id/textView10"
         app:layout_constraintTop_toTopOf="@+id/textView10" />
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/Sofia_Pro_Medium_Az"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnFacebook"
+        android:layout_width="139.26dp"
+        android:layout_height="54dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/sign_up_btn"
+        android:letterSpacing="0.05"
+        android:paddingLeft="50dp"
+        android:paddingRight="14.26dp"
+        android:stateListAnimator="@null"
         android:text="FACEBOOK"
-        android:textColor="@android:color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/imageView5" />
-
-    <TextView
-        android:id="@+id/textView13"
+        android:textColor="#000000"
+        android:textSize="13sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/facebook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/Sofia_Pro_Medium_Az"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginRight="98.64dp"
+        android:layout_marginBottom="11.3dp"
+        app:layout_constraintBottom_toBottomOf="@id/btnFacebook"
+        app:layout_constraintLeft_toLeftOf="@id/btnFacebook"
+        app:layout_constraintRight_toRightOf="@id/btnFacebook"
+        app:layout_constraintTop_toTopOf="@+id/btnFacebook"
+        app:srcCompat="@drawable/fb_icon" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnGoogle"
+        android:layout_width="139.26dp"
+        android:layout_height="54dp"
+        android:layout_marginRight="37.74dp"
+        android:layout_marginBottom="28dp"
+
+        android:background="@drawable/sign_up_btn"
+        android:letterSpacing="0.05"
+        android:paddingLeft="50dp"
+        android:paddingRight="31.26dp"
+        android:stateListAnimator="@null"
         android:text="GOOGLE"
-        android:textColor="@android:color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintStart_toEndOf="@+id/imageView8"
-        app:layout_constraintTop_toTopOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.5" />
+        android:textColor="#000000"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/google"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginRight="98.65dp"
+        android:layout_marginBottom="12.38dp"
+        app:layout_constraintBottom_toBottomOf="@id/btnGoogle"
+        app:layout_constraintLeft_toLeftOf="@id/btnGoogle"
+        app:layout_constraintRight_toRightOf="@id/btnGoogle"
+        app:layout_constraintTop_toTopOf="@id/btnGoogle"
+        app:srcCompat="@drawable/gg_icon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
