@@ -15,6 +15,6 @@
     <string name="already_have_an_account">Already have an account? <font color='#FF724C'>Login</font></string>
 	  <string name="orderText">Browse your menu and order directly</string>
     <string name="lightText">Our app can send you everywhere, even space. For only $2.99 per month</string>
-    <string name="welcome_to_n_foodhub">Welcome to\n <font fgcolor="#FE724C">FoodHub</font></string>
+    <string name="welcome_to_n_foodhub">Welcome to\n<font fgcolor="#FE724C">FoodHub</font></string>
     <string name="already_have_an_account_sign_in">Already have an account? <u><b>Sign in</b></u></string>
 </resources>
