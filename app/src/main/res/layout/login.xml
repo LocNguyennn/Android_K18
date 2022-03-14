@@ -283,7 +283,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Forgot password?"
-        android:fontFamily="@font/Sofia_Pro_Medium_Az"
+        android:fontFamily="@font/sofia_pro_medium_az"
         android:textColor="#FE724C"
         android:textSize="14sp"
         android:layout_marginBottom="32dp"

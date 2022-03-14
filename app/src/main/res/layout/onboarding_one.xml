@@ -20,7 +20,7 @@
         android:id="@+id/txtOrder"
         android:layout_width="336dp"
         android:layout_height="86dp"
-        android:fontFamily="@font/Sofia_Pro_Bold_Az"
+        android:fontFamily="@font/sofia_pro_bold_az"
         android:gravity="center"
         android:text="@string/orderText"
         android:textColor="#5B5B5E"
@@ -70,7 +70,7 @@
         android:layout_height="54dp"
 
         android:layout_marginTop="23dp"
-        android:fontFamily="@font/Sofia_Pro_Light_Az"
+        android:fontFamily="@font/sofia_pro_light_az"
         android:gravity="center"
         android:text="@string/lightText"
         android:textColor="#5B5B5E"
