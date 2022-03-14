@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/banner.xml" value="0.2615" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/btn_back.xml" value="0.2615" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/elipse1.xml" value="0.2615" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/elipse2.xml" value="0.2615" />
@@ -27,6 +28,7 @@
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/login.xml" value="0.33" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/onboarding_one.xml" value="0.33" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/signup.xml" value="0.3171171171171171" />
+        <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/splash.xml" value="0.25" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/verification_code.xml" value="0.33" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/welcome.xml" value="0.33" />
         <entry key="..\:/Project/Android_w1/app/src/main/res/layout/onboarding_one.xml" value="0.18" />
