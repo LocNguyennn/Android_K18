@@ -198,7 +198,7 @@
         android:layout_marginLeft="26dp"
         android:layout_marginTop="5dp"
         android:enabled="true"
-        android:hint="email"
+        android:hint="password"
 
         app:boxStrokeColor="#FE724C"
         app:boxCornerRadiusBottomStart="10dp"

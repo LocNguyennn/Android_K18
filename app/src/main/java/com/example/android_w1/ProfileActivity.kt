@@ -1,9 +1,12 @@
 package com.example.android_w1
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
+import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import org.w3c.dom.Text
@@ -17,6 +20,7 @@ class ProfileActivity : AppCompatActivity() {
         val txtEmail = findViewById<TextView>(R.id.txtEmail)
         val txtPassword = findViewById<TextView>(R.id.txtPassword)
         val txtProfle = findViewById<TextView>(R.id.profile)
+        val btnBack = findViewById<ImageView>(R.id.btnBack)
         bundle?.let{
            val user : User? = it.getParcelable("user")
             user?.let{
@@ -34,6 +38,10 @@ class ProfileActivity : AppCompatActivity() {
         }
         txtFullName.setOnClickListener {
             showDialog(txtFullName,txtProfle)
+        }
+        btnBack.setOnClickListener {
+            val intentLogin = Intent(this@ProfileActivity,LoginActivity::class.java)
+            startActivity(intentLogin)
         }
     }
 
