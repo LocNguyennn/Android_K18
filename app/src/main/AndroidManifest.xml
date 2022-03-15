@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Android_w1">
         <activity
+            android:name=".SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".OnboardingActivity"
             android:exported="false" />
         <activity
