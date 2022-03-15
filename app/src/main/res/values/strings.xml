@@ -12,7 +12,7 @@
     <string name="num8">8\n<font size="10">T U V</font></string>
     <string name="num9">9\n<font size="10">W X Y Z</font></string>
     <string name="num0">0</string>
-    <string name="already_have_an_account">Already have an account? <font color='#FF724C'>Login</font></string>
+    <string name="login"><font color='#FF724C'>Login</font></string>
     <string name="orderText">Browse your menu and order directly</string>
     <string name="orderText1">Even to space with us! Together</string>
     <string name="orderText2">Pickup delivery at your door</string>
