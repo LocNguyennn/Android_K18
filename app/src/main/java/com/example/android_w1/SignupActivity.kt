@@ -5,16 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 
-class SplashActivity : AppCompatActivity() {
+class SignupActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.splash)
-        Handler().postDelayed({
-
-            val intent = Intent(this, OnboardingActivity::class.java)
-            startActivity(intent)
-            finish()
-
-        }, 2000)
+        setContentView(R.layout.signup)
     }
 }
