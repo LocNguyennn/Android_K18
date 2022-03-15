@@ -11,11 +11,13 @@
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/ic_blur.xml" value="0.2615" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/ic_delete.xml" value="0.2615" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/ic_path_3391.xml" value="0.2615" />
+        <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/ic_v1.xml" value="0.2615" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/ic_wave.xml" value="0.2615" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/num_keyboard.xml" value="0.2615" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/otp.xml" value="0.2615" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/otp_selected.xml" value="0.2615" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/otp_unselected.xml" value="0.2615" />
+        <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/profile_circle.xml" value="0.2615" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/rectangle.xml" value="0.2615" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/round_bg.xml" value="0.2615" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/round_border.xml" value="0.2615" />
@@ -23,6 +25,8 @@
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/round_border_selected.xml" value="0.2615" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/sign_up_btn.xml" value="0.2615" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/transparent_rectangle.xml" value="0.2615" />
+        <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/txt_box.xml" value="0.2615" />
+        <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/txt_box_dialog.xml" value="0.196" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/font/sofia_pro.xml" value="0.34324324324324323" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/asdas.xml" value="0.3171171171171171" />
@@ -30,8 +34,11 @@
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/onboarding_one.xml" value="0.33" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/onboarding_three.xml" value="0.3171171171171171" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/onboarding_two.xml" value="0.3171171171171171" />
+        <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/profile.xml" value="0.3171171171171171" />
+        <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/profile_dialog.xml" value="0.25" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/signup.xml" value="0.3171171171171171" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/splash.xml" value="0.25" />
+        <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/txt_box_dialog.xml" value="0.16261261261261262" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/verification_code.xml" value="0.33" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/welcome.xml" value="0.33" />
       </map>

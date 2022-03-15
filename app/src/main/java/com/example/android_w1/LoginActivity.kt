@@ -30,8 +30,8 @@ class LoginActivity : AppCompatActivity() {
             val email = findViewById<TextInputEditText>(R.id.emailInput).text.toString().trim()
             val password = findViewById<TextInputEditText>(R.id.passwordInput).text.toString().trim()
             if (email.equals("ronaldo@gmail.com") && password.equals("123456")) {
-                val user = User(email, password)
-                val intentLogin = Intent(this@LoginActivity, LoginActivity::class.java)
+                val user = User("",email, password)
+                val intentLogin = Intent(this@LoginActivity, ProfileActivity::class.java)
                 val bundle = Bundle()
                 bundle.putParcelable("user", user)
                 intentLogin.putExtras(bundle)
