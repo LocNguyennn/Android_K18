@@ -5,13 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 
-class OnboardingActivity : AppCompatActivity() {
+class WelcomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.onboarding_one)
         Handler().postDelayed({
 
-            val intent = Intent(this, Onboarding2Activity::class.java)
+            val intent = Intent(this, SignupActivity::class.java)
             startActivity(intent)
             finish()
 
