@@ -106,18 +106,19 @@
 
 
 
-    <TextView
-        android:id="@+id/account"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnLogin"
+        android:background="#00ffffff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="96dp"
         android:layout_marginTop="28dp"
         android:fontFamily="@font/sofia_pro_regular_az"
         android:text="@string/already_have_an_account_sign_in"
         android:textSize="14dp"
         android:textColor="#FFFFFF"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnSignUp" />
+        app:layout_constraintTop_toBottomOf="@id/btnSignUp"
+        app:layout_constraintRight_toRightOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnSignUp"

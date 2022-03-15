@@ -73,7 +73,7 @@
         android:id="@+id/editTextTextPassword"
         android:layout_width="324dp"
         android:layout_height="65dp"
-        android:layout_marginTop="57dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/round_border"
         android:ems="10"
         android:fontFamily="@font/sofia_pro_regular_az"
@@ -87,7 +87,7 @@
         android:id="@+id/editTextTextEmailAddress"
         android:layout_width="324dp"
         android:layout_height="65dp"
-        android:layout_marginTop="57dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/round_border"
         android:ems="10"
         android:fontFamily="@font/sofia_pro_regular_az"
@@ -111,7 +111,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="25dp"
         android:fontFamily="@font/sofia_pro_regular_az"
         android:text="Full Name"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
@@ -137,18 +137,15 @@
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPassword" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnSignUp_SignUpPage"
         android:layout_width="248dp"
         android:layout_height="60dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/round_bg"
-        android:backgroundTint="#FF724C"
-        android:backgroundTintMode="add"
         android:text="Sign Up"
-        android:theme="@style/Theme.Android_w1_orange"
+        android:textColor="#fff"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
 
