@@ -9,39 +9,40 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.databinding.DataBindingUtil
+import com.example.android_w1.databinding.ProfileBinding
 import org.w3c.dom.Text
 
 class ProfileActivity : AppCompatActivity() {
+    private lateinit var binding : ProfileBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.profile)
+        binding = DataBindingUtil.setContentView(this,R.layout.profile)
         val bundle = intent.extras
-        val txtFullName = findViewById<TextView>(R.id.txtFullName)
-        val txtEmail = findViewById<TextView>(R.id.txtEmail)
-        val txtPassword = findViewById<TextView>(R.id.txtPassword)
-        val txtProfle = findViewById<TextView>(R.id.profile)
-        val btnBack = findViewById<ImageView>(R.id.btnBack)
-        bundle?.let{
-           val user : User? = it.getParcelable("user")
-            user?.let{
-                txtFullName.text = user.fullName
-                txtEmail.text = user.email
-                txtPassword.text = user.password
-                txtProfle.text = txtFullName?.text
+        binding.apply {
+            bundle?.let {
+                val user: User? = it.getParcelable(Constants.KEY_USER)
+                user?.let {
+                    txtFullName.text = user.fullName
+                    txtEmail.text = user.email
+                    txtPassword.text = user.password
+                    profile.text = txtFullName.text
+                }
             }
-        }
-        txtEmail.setOnClickListener {
-            showDialog(txtEmail,txtProfle)
-        }
-        txtPassword.setOnClickListener {
-            showDialog(txtPassword,txtProfle)
-        }
-        txtFullName.setOnClickListener {
-            showDialog(txtFullName,txtProfle)
-        }
-        btnBack.setOnClickListener {
-            val intentLogin = Intent(this@ProfileActivity,LoginActivity::class.java)
-            startActivity(intentLogin)
+
+            txtEmail.setOnClickListener {
+                showDialog(txtEmail, profile)
+            }
+            txtPassword.setOnClickListener {
+                showDialog(txtPassword, profile)
+            }
+            txtFullName.setOnClickListener {
+                showDialog(txtFullName, profile)
+            }
+            btnBack.setOnClickListener {
+                val intentLogin = Intent(this@ProfileActivity, LoginActivity::class.java)
+                startActivity(intentLogin)
+            }
         }
     }
 
