@@ -21,17 +21,37 @@ class UserViewModel : ViewModel() {
     val isErrorEvent: LiveData<String>
         get() = _isErrorEvent
 
-    fun checkEmailAndPassword(email: String, password: String) {
+    fun checkValidEmailAndPassword(email: String, password: String) {
         //kiem tra format email
         val isValidEmail = isEmailValid(email)
         if (!isValidEmail) {
-            _isErrorEvent.postValue("email không hợp lệ")
+            _isErrorEvent.postValue("Invalid email")
             return
         }
         //password length > 8 && < 10
         val isValidPassword = isPasswordValid(password)
         if (!isValidPassword) {
-            _isErrorEvent.postValue("password không hợp lệ")
+            _isErrorEvent.postValue("Password must have 8 to 10 characters")
+            return
+        }
+        _isSuccessEvent.postValue(true)
+    }
+
+    fun checkTrueUser(email: String, password: String) {
+        //kiem tra format email
+        val isTrueEmail = isTrueEmail(email)
+        val isValidEmail = isEmailValid(email)
+        if (!isValidEmail) {
+            _isErrorEvent.postValue("Invalid Email")
+            return
+        }else if(!isTrueEmail){
+                _isErrorEvent.postValue("Wrong email")
+                return
+        }
+        //password length > 8 && < 10
+        val isTruePassword = isTruePassword(password)
+        if (!isTruePassword) {
+            _isErrorEvent.postValue("Wrong password")
             return
         }
         _isSuccessEvent.postValue(true)
@@ -43,5 +63,12 @@ class UserViewModel : ViewModel() {
 
     private fun isPasswordValid(password: String): Boolean {
         return password.length in 8..10
+    }
+
+    private fun isTrueEmail(email: String) : Boolean {
+        return email.equals(user.email)
+    }
+    private fun isTruePassword(password: String) : Boolean {
+        return password.equals(user.password)
     }
 }

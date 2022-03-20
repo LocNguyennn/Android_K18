@@ -3,9 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <variable
-            name="user"
-            type="com.example.android_w1.User" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -182,7 +180,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/emailInput"
                 android:layout_width="324dp"
-                android:layout_height="65dp" />
+                android:layout_height="65dp"
+                android:text="gmail@gmail.com"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -207,7 +206,6 @@
             android:layout_marginTop="5dp"
             android:enabled="true"
             android:hint="password"
-
             app:boxStrokeColor="#FE724C"
             app:boxCornerRadiusBottomStart="10dp"
             app:boxCornerRadiusBottomEnd="10dp"
@@ -224,7 +222,9 @@
                 android:id="@+id/passwordInput"
                 android:layout_width="324dp"
                 android:layout_height="65dp"
-                android:baselineAligned="false" />
+                android:inputType="textPassword"
+                android:baselineAligned="false"
+                android:text="123456789"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
