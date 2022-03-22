@@ -42,15 +42,18 @@ class SignUpActivity : AppCompatActivity() {
         viewModel.isSuccessEvent.observe(this) {
             if (it) {
                 val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
-                val bundle = Bundle()
-                bundle.putParcelable(
-                    Constants.KEY_USER, User(
-                        binding.edtFullName.text.toString().trim(),
-                        binding.edtEmail.text.toString().trim(),
-                        binding.edtPassword.text.toString().trim()
-                    )
-                )
-                intent.putExtras(bundle)
+//                val bundle = Bundle()
+//                bundle.putParcelable(
+//                    Constants.KEY_USER, User(
+//                        binding.edtFullName.text.toString().trim(),
+//                        binding.edtEmail.text.toString().trim(),
+//                        binding.edtPassword.text.toString().trim()
+//                    )
+//                )
+//                intent.putExtras(bundle)
+                DataStore(binding.edtFullName.text.toString().trim(),
+                      binding.edtEmail.text.toString().trim(),
+                        binding.edtPassword.text.toString().trim())
                 Toast.makeText(this@SignUpActivity, "Sign Up Successful", Toast.LENGTH_SHORT).show()
                 startActivity(intent)
             }

@@ -11,4 +11,5 @@ class User(var fullName : String, var email: String, var password: String) : Par
     fun isNull() : Boolean{
         return fullName.equals("") && email.equals("") && password.equals("");
     }
+
 }

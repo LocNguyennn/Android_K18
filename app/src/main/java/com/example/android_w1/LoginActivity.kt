@@ -25,16 +25,16 @@ class LoginActivity : AppCompatActivity() {
             val intentSignUp = Intent(this@LoginActivity, SignUpActivity::class.java)
             startActivity(intentSignUp)
         }
-        val bundle = intent.extras
-        bundle?.let {
-            val user: User? = it.getParcelable(Constants.KEY_USER)
-            user?.let {
-                viewModel.user.fullName = user.fullName
-                viewModel.user.email = user.email
-                viewModel.user.password = user.password
-            }
-        }
-
+//        val bundle = intent.extras
+//        bundle?.let {
+//            val user: User? = it.getParcelable(Constants.KEY_USER)
+//            user?.let {
+//                viewModel.user.fullName = user.fullName
+//                viewModel.user.email = user.email
+//                viewModel.user.password = user.password
+//            }
+//        }
+        viewModel.user = DataStore("","","")
         binding.apply {
             btnLogin.setOnClickListener {
                 viewModel.checkTrueUser(
