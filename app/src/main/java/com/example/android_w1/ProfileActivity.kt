@@ -25,17 +25,8 @@ class ProfileActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
         binding.apply {
-            bundle?.let {
-                if(viewModel.user.isNull()) {
-                    val user: User? = it.getParcelable(Constants.KEY_USER)
-                    user?.let {
-                        viewModel.user.fullName = user.fullName
-                        viewModel.user.email = user.email
-                        viewModel.user.password = user.password
-                    }
-                }
-            }
-        binding.user = viewModel.user
+            viewModel.user = DataStore("","","")
+            binding.user = viewModel.user
             txtEmail.setOnClickListener {
                 showDialog(txtEmail)
             }
@@ -45,15 +36,12 @@ class ProfileActivity : AppCompatActivity() {
             txtFullName.setOnClickListener {
                 showDialog(txtFullName)
             }
-            btnBack.setOnClickListener {
-                val intentLogin = Intent(this@ProfileActivity, LoginActivity::class.java)
-                startActivity(intentLogin)
-            }
+            backToMenu()
         }
     }
 
 
-    fun showDialog(txtView : TextView){
+    private fun showDialog(txtView : TextView){
         val builder = AlertDialog.Builder(this)
         val dialogLayout =layoutInflater.inflate(R.layout.profile_dialog,null)
         val txtBox =dialogLayout.findViewById<EditText>(R.id.editText)
@@ -83,6 +71,12 @@ class ProfileActivity : AppCompatActivity() {
             }
             setView(dialogLayout)
             show()
+        }
+    }
+    private fun backToMenu(){
+        binding.btnBack.setOnClickListener {
+            val intentLogin = Intent(this@ProfileActivity, MainMenu::class.java)
+            startActivity(intentLogin)
         }
     }
 }

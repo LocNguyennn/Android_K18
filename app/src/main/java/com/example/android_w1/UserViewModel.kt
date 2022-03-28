@@ -3,6 +3,7 @@ package com.example.android_w1
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import java.util.regex.Pattern
 
 enum class Error {
     ERROR_EMAIL,
@@ -12,7 +13,7 @@ enum class Error {
 class Resp(val isSuccess: Boolean, val error: Error?)
 
 class UserViewModel : ViewModel() {
-    var user : User = User("","","")
+    var user: User = User("", "", "")
     private var _isSuccessEvent: MutableLiveData<Boolean> = MutableLiveData()
     val isSuccessEvent: LiveData<Boolean>
         get() = _isSuccessEvent
@@ -31,7 +32,7 @@ class UserViewModel : ViewModel() {
         //password length > 8 && < 10
         val isValidPassword = isPasswordValid(password)
         if (!isValidPassword) {
-            _isErrorEvent.postValue("Password must have 8 to 10 characters")
+            _isErrorEvent.postValue("Password must have at least 8 character (including uppercase, lowercase, special character)")
             return
         }
         _isSuccessEvent.postValue(true)
@@ -44,9 +45,9 @@ class UserViewModel : ViewModel() {
         if (!isValidEmail) {
             _isErrorEvent.postValue("Invalid Email")
             return
-        }else if(!isTrueEmail){
-                _isErrorEvent.postValue("Wrong email")
-                return
+        } else if (!isTrueEmail) {
+            _isErrorEvent.postValue("Wrong email")
+            return
         }
         //password length > 8 && < 10
         val isTruePassword = isTruePassword(password)
@@ -62,13 +63,17 @@ class UserViewModel : ViewModel() {
     }
 
     private fun isPasswordValid(password: String): Boolean {
-        return password.length in 8..10
+        val regex =
+            Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()])(?=\\S+$).{8,}$")
+        return regex.matcher(password).matches()
+
     }
 
-    private fun isTrueEmail(email: String) : Boolean {
+    private fun isTrueEmail(email: String): Boolean {
         return email.equals(user.email)
     }
-    private fun isTruePassword(password: String) : Boolean {
+
+    private fun isTruePassword(password: String): Boolean {
         return password.equals(user.password)
     }
 }

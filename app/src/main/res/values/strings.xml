@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">android_w3</string>
+    <string name="app_name">android_w4</string>
     <string name="verification_code">Verification Code</string>
     <string name="txt_warning">Please type the verification code sent to \nprelookstudio@gmail.com</string>
     <string name="txtResend">I don\'t received a code! <font fgcolor="#FE724C">Please resend</font></string>

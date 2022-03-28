@@ -92,7 +92,7 @@
         android:id="@+id/sign_in_wit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="510dp"
+        android:layout_marginTop="480dp"
         android:fontFamily="@font/sofia_pro_medium_az"
         android:text="sign in with"
         android:textSize="14dp"
@@ -108,12 +108,12 @@
         android:background="#00ffffff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
         android:fontFamily="@font/sofia_pro_regular_az"
         android:textAllCaps="false"
         android:text="@string/already_have_an_account_sign_in"
         android:textSize="14dp"
         android:textColor="#FFFFFF"
+        android:layout_marginTop="15dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnSignUp"
         app:layout_constraintRight_toRightOf="parent"/>
@@ -122,10 +122,9 @@
         android:id="@+id/btnSignUp"
         android:layout_width="293dp"
         android:layout_height="54dp"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="44dp"
         android:layout_marginRight="38dp"
-        android:layout_marginBottom="96dp"
         android:textAllCaps="false"
         android:text="Start with email or phone"
         android:textSize="17sp"
@@ -138,7 +137,7 @@
         app:layout_constraintTop_toBottomOf="@id/btnGoogle"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+ />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnFacebook"
@@ -175,7 +174,7 @@
         android:id="@+id/btnGoogle"
         android:layout_width="139.26dp"
         android:layout_height="54dp"
-        android:layout_marginTop="550dp"
+        android:layout_marginTop="19dp"
         android:layout_marginEnd="37.74dp"
 
         android:textColor="#000000"
@@ -185,7 +184,7 @@
         android:letterSpacing="0.05"
         android:background="@drawable/rectangle"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sign_in_wit"
         android:text="GOOGLE"
         android:stateListAnimator="@null" />
     <androidx.appcompat.widget.AppCompatImageView
