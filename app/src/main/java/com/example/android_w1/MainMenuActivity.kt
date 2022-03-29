@@ -5,15 +5,18 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.android_w1.databinding.MainMenuBinding
 
-class MainMenu : AppCompatActivity() {
+class MainMenuActivity : AppCompatActivity(), RestaurantAdapter.OnItemClickListener {
     private lateinit var binding : MainMenuBinding
     private lateinit var viewModel : MenuViewModel
     private lateinit var adapter: RestaurantAdapter
@@ -39,8 +42,8 @@ class MainMenu : AppCompatActivity() {
                 binding.rvRestaurant.layoutManager = lm
             }
             R.id.action_gridview -> {
-                val lm = GridLayoutManager(this,2)
-                binding.rvRestaurant.layoutManager = lm
+                val gm = GridLayoutManager(this,2)
+                binding.rvRestaurant.layoutManager = gm
             }
         }
 
@@ -58,7 +61,7 @@ class MainMenu : AppCompatActivity() {
         }
     }
     private fun setupMenu(){
-        adapter = RestaurantAdapter()
+        adapter = RestaurantAdapter(this@MainMenuActivity)
         val lm = LinearLayoutManager(this)
         binding.rvRestaurant.layoutManager = lm
         binding.rvRestaurant.adapter = adapter
@@ -75,7 +78,7 @@ class MainMenu : AppCompatActivity() {
             setTitle("Log out")
             setMessage("Do you want to log out?")
             setPositiveButton("YES"){dialog, _ ->
-                val intentLogin = Intent(this@MainMenu, LoginActivity::class.java)
+                val intentLogin = Intent(this@MainMenuActivity, LoginActivity::class.java)
                 startActivity(intentLogin)
                 dialog.dismiss()
             }
@@ -85,6 +88,32 @@ class MainMenu : AppCompatActivity() {
         }
         binding.btnBack.setOnClickListener {
             builder.show()
+        }
+    }
+
+    override fun onItemClick(position: Int) {
+        val builder = AlertDialog.Builder(this)
+        val dialogLayout =layoutInflater.inflate(R.layout.item_view_restaurant,null)
+        val tvName = dialogLayout.findViewById<TextView>(R.id.txtRestaurantName)
+        val tvAddress = dialogLayout.findViewById<TextView>(R.id.txtRestaurantAddr)
+        val ivImage = dialogLayout.findViewById<ImageView>(R.id.imgRestaurant)
+        tvName.text = RestaurantStore.getDataset()[position].name
+        tvAddress.text = RestaurantStore.getDataset()[position].address
+        Glide.with(dialogLayout).load(RestaurantStore.getDataset()[position].image).into(ivImage)
+        with(builder){
+            setTitle("Remove item")
+            setMessage("Do you want to remove this item?")
+            setPositiveButton("Delete"){dialog, which ->
+                RestaurantStore.getDataset().removeAt(position)
+                adapter.notifyItemRemoved(position)
+                Toast.makeText(this@MainMenuActivity,"Xoa item thanh cong",Toast.LENGTH_SHORT).show()
+                dialog.dismiss()
+            }
+            setNegativeButton("Cancel"){dialog, which ->
+                dialog.dismiss()
+            }
+            setView(dialogLayout)
+            show()
         }
     }
 }

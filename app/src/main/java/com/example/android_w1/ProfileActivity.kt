@@ -3,17 +3,12 @@ package com.example.android_w1
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.android_w1.databinding.ProfileBinding
-import org.w3c.dom.Text
 
 class ProfileActivity : AppCompatActivity() {
     private lateinit var binding : ProfileBinding
@@ -75,7 +70,7 @@ class ProfileActivity : AppCompatActivity() {
     }
     private fun backToMenu(){
         binding.btnBack.setOnClickListener {
-            val intentLogin = Intent(this@ProfileActivity, MainMenu::class.java)
+            val intentLogin = Intent(this@ProfileActivity, MainMenuActivity::class.java)
             startActivity(intentLogin)
         }
     }
