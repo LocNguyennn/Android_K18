@@ -34,21 +34,21 @@
 
     <View
         android:id="@+id/line"
-        android:layout_width="25dp"
+        android:layout_width="5dp"
         android:layout_height="5dp"
         android:layout_marginStart="168dp"
         android:layout_marginTop="12dp"
-        android:background="@drawable/line"
+        android:background="@drawable/elipse2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img" />
 
     <View
         android:id="@+id/el2"
-        android:layout_width="5dp"
+        android:layout_width="25dp"
         android:layout_height="5dp"
         android:layout_marginStart="6dp"
         android:layout_marginTop="12dp"
-        android:background="@drawable/elipse2"
+        android:background="@drawable/line"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/el1"

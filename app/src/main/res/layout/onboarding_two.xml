@@ -34,11 +34,11 @@
 
     <View
         android:id="@+id/line"
-        android:layout_width="25dp"
+        android:layout_width="5dp"
         android:layout_height="5dp"
         android:layout_marginStart="168dp"
         android:layout_marginTop="12dp"
-        android:background="@drawable/line"
+        android:background="@drawable/elipse1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img" />
 
@@ -56,11 +56,11 @@
 
     <View
         android:id="@+id/el1"
-        android:layout_width="5dp"
+        android:layout_width="25dp"
         android:layout_height="5dp"
         android:layout_marginStart="6dp"
         android:layout_marginTop="12dp"
-        android:background="@drawable/elipse1"
+        android:background="@drawable/line"
         app:layout_constraintStart_toEndOf="@+id/line"
         app:layout_constraintTop_toBottomOf="@+id/img" />
 
