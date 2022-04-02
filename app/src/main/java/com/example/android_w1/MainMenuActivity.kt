@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.android_w1.databinding.MainMenuBinding
+import com.example.android_w1.model.Restaurant
 
 class MainMenuActivity : AppCompatActivity(), RestaurantAdapter.OnItemClickListener {
     private lateinit var binding : MainMenuBinding
@@ -104,7 +105,9 @@ class MainMenuActivity : AppCompatActivity(), RestaurantAdapter.OnItemClickListe
             setTitle("Remove item")
             setMessage("Do you want to remove this item?")
             setPositiveButton("Delete"){dialog, which ->
-                RestaurantStore.getDataset().removeAt(position)
+                val restaurant : ArrayList<Restaurant>  = RestaurantStore.getDataset()
+                restaurant.removeAt(position)
+                adapter.submitList(restaurant)
                 adapter.notifyItemRemoved(position)
                 Toast.makeText(this@MainMenuActivity,"Xoa item thanh cong",Toast.LENGTH_SHORT).show()
                 dialog.dismiss()
