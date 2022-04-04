@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false">
+
+        <ImageView
+            android:id="@+id/background"
+            android:layout_width="1019dp"
+            android:layout_height="1034dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/welcome_background" />
+
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="1019dp"
+            android:layout_height="1034dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_blur" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSignUp_SignUpPage"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="292.5dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="29dp"
+            android:background="@drawable/round_border1"
+            android:fontFamily="@font/sofia_pro_semi_bold_az"
+            android:text="Skip"
+            android:textAllCaps="false"
+            android:textColor="#FE724C"
+            android:textSize="14sp"
+            app:rippleColor="#ED4A4A"
+            tools:layout_editor_absoluteX="307dp"
+            tools:layout_editor_absoluteY="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+
+        <TextView
+            android:id="@+id/welcome_to_"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="34dp"
+            android:layout_marginTop="181dp"
+            android:gravity="top"
+            android:lineSpacingExtra="15sp"
+            android:text="@string/welcome_to_n_foodhub"
+            android:textColor="#111719"
+            android:textSize="53sp"
+            android:translationY="-7.56sp"
+            tools:layout_editor_absoluteX="30px"
+            android:fontFamily="@font/sofia_pro_bold_az"
+            tools:layout_editor_absoluteY="121dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <TextView
+            android:id="@+id/your_favour"
+            android:layout_width="266dp"
+            android:layout_height="54dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="19dp"
+            android:alpha="0.87"
+            android:gravity="top"
+            android:lineSpacingExtra="9sp"
+            android:text="Your favourite foods delivered fast at your door."
+            android:fontFamily="@font/sofia_pro_regular_az"
+            android:textColor="#111719"
+            android:textSize="18sp"
+            android:translationY="-4.5sp"
+            app:layout_constraintTop_toBottomOf="@id/welcome_to_"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+
+        <TextView
+            android:id="@+id/sign_in_wit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="480dp"
+            android:fontFamily="@font/sofia_pro_medium_az"
+            android:text="sign in with"
+            android:textSize="14dp"
+            android:textColor="#FFFFFF"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnLogin"
+            android:background="#00ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sofia_pro_regular_az"
+            android:textAllCaps="false"
+            android:text="@string/already_have_an_account_sign_in"
+            android:textSize="14dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnSignUp"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSignUp"
+            android:layout_width="293dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="44dp"
+            android:layout_marginRight="38dp"
+            android:textAllCaps="false"
+            android:text="Start with email or phone"
+            android:textSize="17sp"
+            android:textAlignment="center"
+            android:textStyle="normal"
+            android:textColor="#FFFFFFFF"
+            android:paddingLeft="49dp"
+            android:paddingRight="48dp"
+            android:background="@drawable/transparent_rectangle"
+            app:layout_constraintTop_toBottomOf="@id/btnGoogle"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnFacebook"
+            android:layout_width="139.26dp"
+            android:layout_height="54dp"
+            android:text="FACEBOOK"
+            android:background="@drawable/rectangle"
+            android:textColor="#000000"
+            android:textSize="13sp"
+            android:textStyle="normal"
+            android:letterSpacing="0.05"
+            android:paddingLeft="50dp"
+            android:paddingRight="14.26dp"
+            android:layout_marginLeft="44dp"
+            android:layout_marginTop="19dp"
+            android:stateListAnimator="@null"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sign_in_wit" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/facebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginRight="98.64dp"
+            android:layout_marginBottom="11.3dp"
+            app:layout_constraintBottom_toBottomOf="@id/btnFacebook"
+            app:layout_constraintLeft_toLeftOf="@id/btnFacebook"
+            app:layout_constraintRight_toRightOf="@id/btnFacebook"
+            app:layout_constraintTop_toTopOf="@+id/btnFacebook"
+            app:srcCompat="@drawable/fb_icon" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnGoogle"
+            android:layout_width="139.26dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="37.74dp"
+
+            android:textColor="#000000"
+            android:paddingLeft="50dp"
+            android:paddingRight="31.26dp"
+            android:textSize="13sp"
+            android:letterSpacing="0.05"
+            android:background="@drawable/rectangle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sign_in_wit"
+            android:text="GOOGLE"
+            android:stateListAnimator="@null" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/google"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/gg_icon"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginRight="98.65dp"
+            android:layout_marginBottom="12.38dp"
+            app:layout_constraintTop_toTopOf="@id/btnGoogle"
+            app:layout_constraintBottom_toBottomOf="@id/btnGoogle"
+            app:layout_constraintLeft_toLeftOf="@id/btnGoogle"
+            app:layout_constraintRight_toRightOf="@id/btnGoogle" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
