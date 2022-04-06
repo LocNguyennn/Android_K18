@@ -31,11 +31,15 @@ class WelcomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnSignUp.setOnClickListener {
             val controller = findNavController()
+//            controller.navigate(R.id.action_welcomeFragment_to_viewPagerSignUpSignIn)
             controller.navigate(R.id.action_welcomeFragment_to_signUpFragment)
+
         }
         binding.btnLogin.setOnClickListener {
             val controller = findNavController()
+//            controller.navigate(R.id.action_welcomeFragment_to_viewPagerSignUpSignIn)
             controller.navigate(R.id.action_welcomeFragment_to_signInFragment)
+
         }
     }
 

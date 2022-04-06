@@ -28,7 +28,7 @@ class Onboarding1 : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val viewPager = activity?.findViewById<ViewPager2>(R.id.viewPager)
         binding.btnNext.setOnClickListener {
-            viewPager?.currentItem = 1
+            viewPager?.currentItem = 2
         }
     }
 }
