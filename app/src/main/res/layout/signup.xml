@@ -60,59 +60,85 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/edtFullName"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edtFullNameTextInput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="324dp"
             android:layout_height="65dp"
             android:layout_marginTop="6dp"
-            android:background="@drawable/round_border_selected"
-            android:ems="10"
-            android:fontFamily="@font/sofia_pro_medium_az"
-            android:inputType="textPersonName"
-            android:padding="16dp"
-            android:text=" Arlene Mccoy"
+            android:enabled="true"
+            app:boxCornerRadiusBottomEnd="30dp"
+            app:boxCornerRadiusBottomStart="30dp"
+            app:boxCornerRadiusTopEnd="30dp"
+            app:boxCornerRadiusTopStart="30dp"
+            app:boxStrokeColor="#FE724C"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeWidthFocused="2dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            app:shapeAppearance="?attr/shapeAppearanceSmallComponent">
 
-        <EditText
-            android:id="@+id/edtPassword"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtFullName"
+                android:layout_width="324dp"
+                android:layout_height="60dp"
+                android:fontFamily="@font/sofia_pro_medium_az"
+                android:text="@string/full_name" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edtPasswordTextInput"
             android:layout_width="324dp"
             android:layout_height="65dp"
             android:layout_marginTop="40dp"
-            android:background="@drawable/round_border"
-            android:ems="10"
-            android:fontFamily="@font/sofia_pro_regular_az"
-            android:inputType="textPassword"
-            android:padding="16dp"
-            android:text="123456789"
-            app:layout_constraintStart_toStartOf="@+id/edtEmail"
-            app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
+            app:boxCornerRadiusBottomStart="30dp"
+            app:boxCornerRadiusBottomEnd="30dp"
+            app:boxCornerRadiusTopEnd="30dp"
+            app:boxCornerRadiusTopStart="30dp"
+            app:layout_constraintStart_toStartOf="@+id/edtEmailTextInput"
+            app:layout_constraintTop_toBottomOf="@+id/edtEmailTextInput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="#FE724C"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeWidthFocused="2dp"
+            app:passwordToggleEnabled="true"
+            app:shapeAppearance="?attr/shapeAppearanceSmallComponent"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtPassword"
+                android:layout_width="324dp"
+                android:layout_height="60dp"
+                android:inputType="textPassword"
+                android:fontFamily="@font/sofia_pro_medium_az"
+                android:text="@string/password"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/edtEmail"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edtEmailTextInput"
             android:layout_width="324dp"
             android:layout_height="65dp"
             android:layout_marginTop="40dp"
-            android:background="@drawable/round_border"
-            android:ems="10"
-            android:fontFamily="@font/sofia_pro_regular_az"
-            android:inputType="textEmailAddress"
-            android:padding="16dp"
-            android:text="gmail@gmail.com"
-            app:layout_constraintStart_toStartOf="@+id/edtFullName"
-            app:layout_constraintTop_toBottomOf="@+id/edtFullName" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toBottomOf="@+id/edtPassword"
-            app:layout_constraintEnd_toEndOf="@+id/edtPassword"
-            app:layout_constraintTop_toTopOf="@+id/edtPassword"
-            app:srcCompat="@drawable/eye" />
-
+            app:boxCornerRadiusBottomStart="30dp"
+            app:boxCornerRadiusBottomEnd="30dp"
+            app:boxCornerRadiusTopEnd="30dp"
+            app:boxCornerRadiusTopStart="30dp"
+            app:layout_constraintStart_toStartOf="@+id/edtFullNameTextInput"
+            app:layout_constraintTop_toBottomOf="@+id/edtFullNameTextInput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:boxStrokeColor="#FE724C"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeWidthFocused="2dp"
+            app:shapeAppearance="?attr/shapeAppearanceSmallComponent">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtEmail"
+                android:layout_width="324dp"
+                android:layout_height="60dp"
+                android:fontFamily="@font/sofia_pro_medium_az"
+                android:text="@string/email"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
@@ -120,7 +146,7 @@
             android:layout_marginTop="25dp"
             android:fontFamily="@font/sofia_pro_regular_az"
             android:text="Full Name"
-            app:layout_constraintStart_toStartOf="@+id/edtFullName"
+            app:layout_constraintStart_toStartOf="@+id/edtFullNameTextInput"
             app:layout_constraintTop_toBottomOf="@+id/textSignUp" />
 
         <TextView
@@ -130,8 +156,8 @@
             android:layout_marginBottom="6dp"
             android:fontFamily="@font/sofia_pro_regular_az"
             android:text="E-mail"
-            app:layout_constraintBottom_toTopOf="@+id/edtEmail"
-            app:layout_constraintStart_toStartOf="@+id/edtEmail" />
+            app:layout_constraintBottom_toTopOf="@+id/edtEmailTextInput"
+            app:layout_constraintStart_toStartOf="@+id/edtEmailTextInput" />
 
         <TextView
             android:id="@+id/textView8"
@@ -140,8 +166,8 @@
             android:layout_marginBottom="6dp"
             android:fontFamily="@font/sofia_pro_regular_az"
             android:text="Password"
-            app:layout_constraintBottom_toTopOf="@+id/edtPassword"
-            app:layout_constraintStart_toStartOf="@+id/edtPassword" />
+            app:layout_constraintBottom_toTopOf="@+id/edtPasswordTextInput"
+            app:layout_constraintStart_toStartOf="@+id/edtPasswordTextInput" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnSignUp"
@@ -153,7 +179,7 @@
             android:textColor="#fff"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
+            app:layout_constraintTop_toBottomOf="@+id/edtPasswordTextInput" />
 
 
         <LinearLayout

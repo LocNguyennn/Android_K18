@@ -30,7 +30,8 @@ class SignUpFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
@@ -73,14 +74,13 @@ class SignUpFragment : Fragment() {
                     binding.edtPassword.text.toString().trim())
                 Toast.makeText(context, "Sign Up Successful", Toast.LENGTH_SHORT).show()
                 val controller = findNavController()
-                controller.navigate(R.id.action_signUpFragment_to_signInFragment)
+                controller.popBackStack()
+//                controller.navigate(R.id.action_signUpFragment_to_signInFragment)
 //                val viewPager = activity?.findViewById<ViewPager2>(R.id.viewPager2)
 //                viewPager?.currentItem = 0
             }
         }
     }
-
-
     private fun listenerErrorEvent() {
         viewModel.isErrorEvent.observe(viewLifecycleOwner) { errMess ->
             val dialog = AlertDialog.Builder(requireContext())
@@ -89,5 +89,4 @@ class SignUpFragment : Fragment() {
             dialog.show()
         }
     }
-
 }

@@ -2,7 +2,6 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
     app:startDestination="@id/splash">
 
     <fragment
@@ -44,11 +43,12 @@
             android:id="@+id/action_welcomeFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/viewPagerSignUpSignIn"
-        android:name="com.example.android_w1.signInAndSignUp.ViewPagerSignUpSignIn"
-        android:label="ViewPagerSignUpSignIn"
-        tools:layout="@layout/fragment_view_pager_sign_up_sign_in"/>
+<!--    <fragment-->
+<!--        android:id="@+id/viewPagerSignUpSignIn"-->
+<!--        android:name="com.example.android_w1.signInAndSignUp.ViewPagerSignUpSignIn"-->
+<!--        android:label="ViewPagerSignUpSignIn"-->
+<!--        tools:layout="@layout/fragment_view_pager_sign_up_sign_in"/>-->
+
     <fragment
         android:id="@+id/signInFragment"
         android:name="com.example.android_w1.fragment.SignInFragment"
@@ -59,7 +59,9 @@
             app:destination="@id/signUpFragment" />
         <action
             android:id="@+id/action_signInFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/signInFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"

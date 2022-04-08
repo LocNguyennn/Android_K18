@@ -20,12 +20,10 @@ import com.example.android_w1.databinding.FragmentSignInBinding
 class SignInFragment : Fragment() {
     private lateinit var binding : FragmentSignInBinding
     private lateinit var viewModel: UserViewModel
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
@@ -46,16 +44,14 @@ class SignInFragment : Fragment() {
             }
             listenerSuccessEvent()
             listenerErrorEvent()
-            binding.btnBack.setOnClickListener {
+            btnBack.setOnClickListener {
                 val controller = findNavController()
-//                controller.navigate(R.id.ac)
+                controller.navigateUp()
             }
-        }
-        binding.btnSignUp.setOnClickListener {
-            val viewPager = activity?.findViewById<ViewPager2>(R.id.viewPager2)
-            val controller = findNavController()
-            controller.navigate(R.id.action_signInFragment_to_signUpFragment)
-//            viewPager?.currentItem = 1
+            btnSignUp.setOnClickListener {
+                val controller = findNavController()
+                controller.navigate(R.id.action_signInFragment_to_signUpFragment)
+            }
         }
     }
 
@@ -63,8 +59,6 @@ class SignInFragment : Fragment() {
         viewModel.isSuccessEvent.observe(viewLifecycleOwner) {
             if (it) {
                 val intentLogin = Intent(context, Home::class.java)
-                val controller = findNavController()
-                controller.navigate(R.id.action_signInFragment_to_homeFragment)
                 Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show()
                 val bundle = Bundle()
                 var fullName = viewModel.user.fullName
@@ -76,7 +70,8 @@ class SignInFragment : Fragment() {
                     )
                 )
                 intentLogin.putExtras(bundle)
-                
+                val controller = findNavController()
+                controller.navigate(R.id.action_signInFragment_to_homeFragment)
             }
         }
     }

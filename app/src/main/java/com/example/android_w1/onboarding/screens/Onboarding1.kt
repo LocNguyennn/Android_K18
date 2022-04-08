@@ -11,12 +11,10 @@ import com.example.android_w1.databinding.FragmentOnboarding1Binding
 
 class Onboarding1 : Fragment() {
     lateinit var binding : FragmentOnboarding1Binding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
@@ -28,7 +26,7 @@ class Onboarding1 : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val viewPager = activity?.findViewById<ViewPager2>(R.id.viewPager)
         binding.btnNext.setOnClickListener {
-            viewPager?.currentItem = 2
+            viewPager?.currentItem = 1
         }
     }
 }
