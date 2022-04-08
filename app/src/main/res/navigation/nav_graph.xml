@@ -77,5 +77,21 @@
         android:name="com.example.android_w1.fragment.Home"
         android:label="Home"
         tools:layout="@layout/fragment_home"
-        />
+        >
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.android_w1.fragment.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile"
+        >
+        <action
+            android:id="@+id/action_profileFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment"
+            app:popUpTo="@id/welcomeFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
 </navigation>

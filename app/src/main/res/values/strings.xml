@@ -10,5 +10,6 @@
     <string name="full_name">Arlene Mccoy</string>
     <string name="email">valid@gmail.com</string>
     <string name="password">123456789a@A</string>
+    <string name="logout">Log Out</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
