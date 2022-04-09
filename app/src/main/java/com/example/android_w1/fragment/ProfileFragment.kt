@@ -22,7 +22,6 @@ class ProfileFragment : Fragment() {
     private lateinit var sharePreferences : SharedPreferences
     private lateinit var binding : FragmentProfileBinding
     private lateinit var viewModel: UserViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -39,7 +38,6 @@ class ProfileFragment : Fragment() {
         val email = sharePreferences.getString("EMAIL","")
         val password = sharePreferences.getString("PASSWORD","")
         binding.apply {
-//            val user = DataStore("","","")
             viewModel.user =
                 User(name.toString(),email.toString(),password.toString())
             binding.user = viewModel.user
@@ -57,6 +55,7 @@ class ProfileFragment : Fragment() {
     }
 
     private fun showDialog(txtView : TextView){
+        val editor : SharedPreferences.Editor = sharePreferences.edit()
         val builder = AlertDialog.Builder(requireContext())
         val dialogLayout = layoutInflater.inflate(R.layout.profile_dialog,null)
         val txtBox =dialogLayout.findViewById<EditText>(R.id.editText)
@@ -68,14 +67,20 @@ class ProfileFragment : Fragment() {
                 txtView.text = txtBox?.text.toString()
                 if(txtView.hint.equals("Full name")){
                     viewModel.user.fullName = txtView.text.toString()
+                    editor.putString("NAME",viewModel.user.fullName)
+                    editor.apply()
                     binding.invalidateAll()
                 }
                 else if(txtView.hint.equals("Email")){
                     viewModel.user.email = txtView.text.toString()
+                    editor.putString("EMAIL",viewModel.user.email)
+                    editor.apply()
                     binding.invalidateAll()
                 }
                 else if(txtView.hint.equals("Password")){
                     viewModel.user.password = txtView.text.toString()
+                    editor.putString("PASSWORD",viewModel.user.password.trim())
+                    editor.apply()
                     binding.invalidateAll()
                 }
                 dialog.dismiss()

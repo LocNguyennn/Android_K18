@@ -111,18 +111,19 @@
             android:fontFamily="@font/sofia_pro_medium_az"
             android:gravity="center"
             />
+
         <EditText
             android:id="@+id/txtOtp_3"
             android:layout_width="65dp"
             android:layout_height="65dp"
+            android:layout_marginEnd="20dp"
             android:background="@drawable/otp_selected"
+            android:gravity="center"
             android:inputType="number"
             android:maxLines="1"
             android:textColor="#FE724C"
-            android:textSize="27sp"
-            android:layout_marginEnd="20dp"
-            android:gravity="center"
-            />
+            android:textSize="27sp" />
+
         <EditText
             android:id="@+id/txtOtp_4"
             android:layout_width="65dp"
