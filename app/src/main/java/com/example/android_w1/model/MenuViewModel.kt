@@ -1,9 +1,9 @@
-package com.example.android_w1
+package com.example.android_w1.model
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.android_w1.model.Restaurant
+import com.example.android_w1.RestaurantStore
 
 class MenuViewModel : ViewModel() {
     private var _listOfData : MutableLiveData<ArrayList<Restaurant>> = MutableLiveData()

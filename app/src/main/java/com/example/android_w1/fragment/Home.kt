@@ -1,8 +1,5 @@
 package com.example.android_w1.fragment
 
-import android.content.Context
-import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.*
 import android.widget.ImageView
@@ -17,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.android_w1.*
 import com.example.android_w1.databinding.FragmentHomeBinding
+import com.example.android_w1.model.MenuViewModel
 import com.example.android_w1.model.Restaurant
 
 class Home : Fragment(), RestaurantAdapter.OnItemClickListener {
