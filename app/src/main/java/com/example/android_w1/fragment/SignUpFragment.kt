@@ -71,7 +71,8 @@ class SignUpFragment : Fragment() {
                 DataStore(binding.edtFullName.text.toString().trim(),
                     binding.edtEmail.text.toString().trim(),
                     binding.edtPassword.text.toString().trim())
-                Toast.makeText(context, "Sign Up Successful", Toast.LENGTH_SHORT).show()
+                Log.e("SignUpFragment:", " mk = ${binding.edtPassword.text.toString().trim()}");
+//                Toast.makeText(context, "Sign Up Successful", Toast.LENGTH_SHORT).show()
                 val controller = findNavController()
                 controller.navigate(R.id.action_signUpFragment_to_signInFragment)
 //                val viewPager = activity?.findViewById<ViewPager2>(R.id.viewPager2)

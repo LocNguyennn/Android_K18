@@ -52,7 +52,7 @@ class SignInFragment : Fragment() {
             }
         }
         binding.btnSignUp.setOnClickListener {
-            val viewPager = activity?.findViewById<ViewPager2>(R.id.viewPager2)
+//            val viewPager = activity?.findViewById<ViewPager2>(R.id.viewPager2)
             val controller = findNavController()
             controller.navigate(R.id.action_signInFragment_to_signUpFragment)
 //            viewPager?.currentItem = 1
@@ -65,7 +65,7 @@ class SignInFragment : Fragment() {
                 val intentLogin = Intent(context, Home::class.java)
                 val controller = findNavController()
                 controller.navigate(R.id.action_signInFragment_to_homeFragment)
-                Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show()
                 val bundle = Bundle()
                 var fullName = viewModel.user.fullName
                 bundle.putParcelable(
@@ -76,37 +76,10 @@ class SignInFragment : Fragment() {
                     )
                 )
                 intentLogin.putExtras(bundle)
-                
+
             }
         }
     }
-//    fun <T> LiveData<T>.observeOnceAfterInit(owner: LifecycleOwner, observer: (T) -> Unit) {
-//        var firstObservation = true
-//
-//        observe(owner, object: Observer<T>
-//        {
-//            override fun onChanged(value: T) {
-//                if(firstObservation)
-//                {
-//                    firstObservation = false
-//                }
-//                else
-//                {
-//                    removeObserver(this)
-//                    observer(value)
-//                }
-//            }
-//        })
-//    }
-//    fun <T> LiveData<T>.observeOnce(lifecycleOwner: LifecycleOwner, observer: Observer<T>) {
-//        observe(lifecycleOwner, object : Observer<T> {
-//            override fun onChanged(t: T?) {
-//                observer.onChanged(t)
-//                removeObserver(this)
-//            }
-//        })
-//
-//    }
 
     private fun listenerErrorEvent() {
         viewModel.isErrorEvent.observe(viewLifecycleOwner) { errMess ->

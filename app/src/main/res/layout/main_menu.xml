@@ -51,5 +51,18 @@
             app:layout_constraintBottom_toBottomOf="@id/btnBack"
             app:layout_constraintLeft_toLeftOf="@id/btnBack"
             app:layout_constraintRight_toRightOf="@id/btnBack" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="My restaurants"
+            android:textSize="18sp"
+            android:textColor="#111719"
+            android:fontFamily="@font/sofia_pro_medium_az"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
