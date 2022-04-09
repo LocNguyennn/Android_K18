@@ -1,6 +1,8 @@
 package com.example.android_w1.fragment
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.*
 import android.widget.ImageView
@@ -9,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -20,9 +23,7 @@ class Home : Fragment(), RestaurantAdapter.OnItemClickListener {
     private lateinit var binding : FragmentHomeBinding
     private lateinit var viewModel : MenuViewModel
     private lateinit var adapter: RestaurantAdapter
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,8 +33,6 @@ class Home : Fragment(), RestaurantAdapter.OnItemClickListener {
         viewModel = ViewModelProvider(this).get(MenuViewModel::class.java)
         setupMenu()
         registerData()
-//        openProfile()
-//        logout()
         setHasOptionsMenu(true)
         return binding.root
     }
@@ -72,30 +71,17 @@ class Home : Fragment(), RestaurantAdapter.OnItemClickListener {
         binding.rvRestaurant.layoutManager = lm
         binding.rvRestaurant.adapter = adapter
     }
-//    private fun openProfile(){
-//        binding.ivProfile.setOnClickListener {
-//            val intent = Intent(this, ProfileActivity::class.java)
-//            startActivity(intent)
-//        }
-//    }
-//    private fun logout(){
-//        val builder = AlertDialog.Builder(requireContext())
-//        builder.apply {
-//            setTitle("Log out")
-//            setMessage("Do you want to log out?")
-//            setPositiveButton("YES"){dialog, _ ->
-//                val intentLogin = Intent(this, LoginActivity::class.java)
-//                startActivity(intentLogin)
-//                dialog.dismiss()
-//            }
-//            setNegativeButton("NO"){dialog, _ ->
-//                dialog.dismiss()
-//            }
-//        }
-//        binding.btnBack.setOnClickListener {
-//            builder.show()
-//        }
-//    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        openProfile()
+    }
+    private fun openProfile(){
+        binding.ivProfile.setOnClickListener {
+            val controller = findNavController()
+            controller.navigate(R.id.action_homeFragment_to_profileFragment)
+        }
+    }
 
     override fun onItemClick(position: Int) {
         val builder = AlertDialog.Builder(requireContext())
@@ -124,4 +110,5 @@ class Home : Fragment(), RestaurantAdapter.OnItemClickListener {
             show()
         }
     }
+
 }

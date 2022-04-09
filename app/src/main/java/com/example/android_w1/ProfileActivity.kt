@@ -16,7 +16,6 @@ class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,R.layout.profile)
-        val bundle = intent.extras
         viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
         binding.apply {

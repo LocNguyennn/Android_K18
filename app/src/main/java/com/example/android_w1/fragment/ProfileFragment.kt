@@ -1,5 +1,7 @@
 package com.example.android_w1.fragment
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,10 +14,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.android_w1.DataStore
 import com.example.android_w1.R
+import com.example.android_w1.User
 import com.example.android_w1.UserViewModel
 import com.example.android_w1.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
+    private lateinit var sharePreferences : SharedPreferences
     private lateinit var binding : FragmentProfileBinding
     private lateinit var viewModel: UserViewModel
 
@@ -24,14 +28,18 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentProfileBinding.inflate(inflater,container,false)
+        sharePreferences = requireActivity().getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        val name = sharePreferences.getString("NAME","")
+        val email = sharePreferences.getString("EMAIL","")
+        val password = sharePreferences.getString("PASSWORD","")
         binding.apply {
-            viewModel.user = DataStore("","","")
+            viewModel.user = User(name.toString(),email.toString(),password.toString())
             binding.user = viewModel.user
             txtEmail.setOnClickListener {
                 showDialog(txtEmail)
@@ -79,6 +87,9 @@ class ProfileFragment : Fragment() {
     }
     private fun setLogOut(){
         binding.btnLogOut.setOnClickListener {
+            val editor : SharedPreferences.Editor = sharePreferences.edit()
+            editor.clear()
+            editor.apply()
             val controller = findNavController()
             controller.navigate(R.id.action_profileFragment_to_welcomeFragment)
         }

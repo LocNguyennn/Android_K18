@@ -44,10 +44,8 @@ class SignUpFragment : Fragment() {
 //        Log.e("SignUpFragment","onViewCreated")
         binding.apply {
             btnLogin.setOnClickListener {
-//                val viewPager = activity?.findViewById<ViewPager2>(R.id.viewPager2)
                 val controller = findNavController()
                 controller.navigate(R.id.action_signUpFragment_to_signInFragment)
-//                viewPager?.currentItem = 0
             }
             btnSignUp.setOnClickListener {
                 // code nhận thông tin đăng kí ở đây
@@ -73,12 +71,8 @@ class SignUpFragment : Fragment() {
                     binding.edtEmail.text.toString().trim(),
                     binding.edtPassword.text.toString().trim())
                 Log.e("SignUpFragment:", " mk = ${binding.edtPassword.text.toString().trim()}");
-//                Toast.makeText(context, "Sign Up Successful", Toast.LENGTH_SHORT).show()
-                val controller = findNavController()
-                controller.popBackStack()
-//                controller.navigate(R.id.action_signUpFragment_to_signInFragment)
-//                val viewPager = activity?.findViewById<ViewPager2>(R.id.viewPager2)
-//                viewPager?.currentItem = 0
+                findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
+//                findNavController().popBackStack()
             }
         }
     }
