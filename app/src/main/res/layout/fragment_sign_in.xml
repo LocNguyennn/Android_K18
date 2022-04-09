@@ -181,7 +181,7 @@
                 android:id="@+id/emailInput"
                 android:layout_width="324dp"
                 android:layout_height="65dp"
-                android:text="gmail@gmail.com"/>
+                android:text="@string/email"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -224,7 +224,7 @@
                 android:layout_height="65dp"
                 android:inputType="textPassword"
                 android:baselineAligned="false"
-                android:text="123456789"/>
+                android:text="@string/password"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 

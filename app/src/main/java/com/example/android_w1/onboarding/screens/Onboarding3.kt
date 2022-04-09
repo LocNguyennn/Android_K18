@@ -13,16 +13,13 @@ import com.example.android_w1.databinding.FragmentOnboarding3Binding
 
 class Onboarding3 : Fragment() {
     lateinit var binding : FragmentOnboarding3Binding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
         binding = FragmentOnboarding3Binding.inflate(inflater,container,false)
         return binding.root
     }
@@ -36,8 +33,8 @@ class Onboarding3 : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnNext.setOnClickListener {
-            findNavController().navigate(R.id.action_viewPagerFragment_to_welcomeFragment)
             onBoardingFinished()
+            findNavController().navigate(R.id.action_viewPagerFragment_to_welcomeFragment)
         }
     }
 }

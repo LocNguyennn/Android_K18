@@ -12,34 +12,29 @@ import com.example.android_w1.databinding.FragmentWelcomeBinding
 class WelcomeFragment : Fragment() {
 
     lateinit var binding : FragmentWelcomeBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentWelcomeBinding.inflate(inflater,container,false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnSignUp.setOnClickListener {
-            val controller = findNavController()
-//            controller.navigate(R.id.action_welcomeFragment_to_viewPagerSignUpSignIn)
-            controller.navigate(R.id.action_welcomeFragment_to_signUpFragment)
 
-        }
-        binding.btnLogin.setOnClickListener {
-            val controller = findNavController()
-//            controller.navigate(R.id.action_welcomeFragment_to_viewPagerSignUpSignIn)
-            controller.navigate(R.id.action_welcomeFragment_to_signInFragment)
-
+        binding.apply{
+            btnSignUp.setOnClickListener {
+                val controller = findNavController()
+                controller.navigate(R.id.action_welcomeFragment_to_signUpFragment)
+            }
+            btnLogin.setOnClickListener {
+                val controller = findNavController()
+                controller.navigate(R.id.action_welcomeFragment_to_signInFragment)
+            }
         }
     }
 
