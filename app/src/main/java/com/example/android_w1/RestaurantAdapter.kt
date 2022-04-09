@@ -1,5 +1,6 @@
 package com.example.android_w1
 
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -55,10 +56,13 @@ class RestaurantAdapter(val mListener : OnItemClickListener) : ListAdapter<Resta
             val tvName = itemView.findViewById<TextView>(R.id.txtRestaurantName)
             val tvAddress = itemView.findViewById<TextView>(R.id.txtRestaurantAddr)
             val ivImage = itemView.findViewById<ImageView>(R.id.imgRestaurant)
-
             // bind data
             tvName.text = restaurant.name
             tvAddress.text = restaurant.address
+            tvAddress.ellipsize = TextUtils.TruncateAt.MARQUEE
+            tvAddress.isSelected = true
+            tvName.ellipsize = TextUtils.TruncateAt.MARQUEE
+            tvName.isSelected = true
             Glide.with(itemView).load(restaurant.image).into(ivImage)
         }
 

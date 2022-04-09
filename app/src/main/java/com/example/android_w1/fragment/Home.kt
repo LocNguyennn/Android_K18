@@ -35,29 +35,29 @@ class Home : Fragment(), RestaurantAdapter.OnItemClickListener {
         return binding.root
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater){
-        inflater.inflate(R.menu.options_menu,menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
+//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater){
+//        inflater.inflate(R.menu.options_menu,menu)
+//        super.onCreateOptionsMenu(menu, inflater)
+//    }
 
     override fun onStart() {
         super.onStart()
         viewModel.loadData()
     }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.action_listview -> {
-                val lm = LinearLayoutManager(context)
-                binding.rvRestaurant.layoutManager = lm
-            }
-            R.id.action_gridview -> {
-                val gm = GridLayoutManager(context,2)
-                binding.rvRestaurant.layoutManager = gm
-            }
-        }
-
-        return super.onOptionsItemSelected(item)
-    }
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        when(item.itemId){
+//            R.id.action_listview -> {
+//                val lm = LinearLayoutManager(context)
+//                binding.rvRestaurant.layoutManager = lm
+//            }
+//            R.id.action_gridview -> {
+//                val gm = GridLayoutManager(context,2)
+//                binding.rvRestaurant.layoutManager = gm
+//            }
+//        }
+//
+//        return super.onOptionsItemSelected(item)
+//    }
     private fun registerData(){
         viewModel.listOfData.observe(viewLifecycleOwner){
             adapter.submitList(it)
@@ -83,7 +83,7 @@ class Home : Fragment(), RestaurantAdapter.OnItemClickListener {
 
     override fun onItemClick(position: Int) {
         val builder = AlertDialog.Builder(requireContext())
-        val dialogLayout =layoutInflater.inflate(R.layout.item_view_restaurant,null)
+        val dialogLayout =layoutInflater.inflate(R.layout.item_view_restaurant_clicked,null)
         val tvName = dialogLayout.findViewById<TextView>(R.id.txtRestaurantName)
         val tvAddress = dialogLayout.findViewById<TextView>(R.id.txtRestaurantAddr)
         val ivImage = dialogLayout.findViewById<ImageView>(R.id.imgRestaurant)
