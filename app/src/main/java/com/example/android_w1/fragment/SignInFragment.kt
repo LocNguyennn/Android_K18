@@ -35,7 +35,14 @@ class SignInFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.user = DataStore("","","")
+        val name = sharePreferences.getString("NAME","")
+        val email = sharePreferences.getString("EMAIL","")
+        val password = sharePreferences.getString("PASSWORD","")
+        val userPreferences = User(name.toString(),email.toString(),password.toString())
+        if(userPreferences.email.equals(""))
+            viewModel.user = DataStore("","","")
+        else
+            viewModel.user = userPreferences
         binding.apply {
             btnLogin.setOnClickListener {
                 viewModel.checkTrueUser(
