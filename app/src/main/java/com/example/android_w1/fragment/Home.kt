@@ -16,6 +16,7 @@ import com.example.android_w1.*
 import com.example.android_w1.databinding.FragmentHomeBinding
 import com.example.android_w1.model.MenuViewModel
 import com.example.android_w1.model.Restaurant
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class Home : Fragment(), RestaurantAdapter.OnItemClickListener {
     private lateinit var binding : FragmentHomeBinding
@@ -35,29 +36,28 @@ class Home : Fragment(), RestaurantAdapter.OnItemClickListener {
         return binding.root
     }
 
-//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater){
-//        inflater.inflate(R.menu.options_menu,menu)
-//        super.onCreateOptionsMenu(menu, inflater)
-//    }
-
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater){
+        inflater.inflate(R.menu.options_menu,menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
     override fun onStart() {
         super.onStart()
         viewModel.loadData()
     }
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        when(item.itemId){
-//            R.id.action_listview -> {
-//                val lm = LinearLayoutManager(context)
-//                binding.rvRestaurant.layoutManager = lm
-//            }
-//            R.id.action_gridview -> {
-//                val gm = GridLayoutManager(context,2)
-//                binding.rvRestaurant.layoutManager = gm
-//            }
-//        }
-//
-//        return super.onOptionsItemSelected(item)
-//    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.action_listview -> {
+                val lm = LinearLayoutManager(context)
+                binding.rvRestaurant.layoutManager = lm
+            }
+            R.id.action_gridview -> {
+                val gm = GridLayoutManager(context,2)
+                binding.rvRestaurant.layoutManager = gm
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
     private fun registerData(){
         viewModel.listOfData.observe(viewLifecycleOwner){
             adapter.submitList(it)
@@ -106,6 +106,23 @@ class Home : Fragment(), RestaurantAdapter.OnItemClickListener {
             }
             setView(dialogLayout)
             show()
+        }
+    }
+    fun bottomNavigation(){
+        BottomNavigationView.OnNavigationItemReselectedListener { item ->
+            when(item.itemId) {
+                R.id.now_playing -> {
+                    // Respond to navigation item 1 click
+                    Toast.makeText(requireContext(),"Now playing clicked", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.top_rating -> {
+                    // Respond to navigation item 2 click
+                    Toast.makeText(requireContext(),"Top rating clicked", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> false
+            }
         }
     }
 
