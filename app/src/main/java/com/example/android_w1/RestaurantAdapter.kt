@@ -43,7 +43,7 @@ class RestaurantAdapter(val mListener : OnItemClickListener) : ListAdapter<Resta
         companion object {
             fun from(parent: ViewGroup,listener : OnItemClickListener): RestaurantViewHolder {
                 var layoutInflater = LayoutInflater.from(parent.context)
-                val view = layoutInflater.inflate(R.layout.item_view_restaurant, parent, false)
+                val view = layoutInflater.inflate(R.layout.item_view_movie, parent, false)
                 return RestaurantViewHolder(view,listener)
             }
         }
@@ -53,9 +53,9 @@ class RestaurantAdapter(val mListener : OnItemClickListener) : ListAdapter<Resta
             }
         }
         fun bindData(restaurant : Restaurant){
-            val tvName = itemView.findViewById<TextView>(R.id.txtRestaurantName)
-            val tvAddress = itemView.findViewById<TextView>(R.id.txtRestaurantAddr)
-            val ivImage = itemView.findViewById<ImageView>(R.id.imgRestaurant)
+            val tvName = itemView.findViewById<TextView>(R.id.txtMovieName)
+            val tvAddress = itemView.findViewById<TextView>(R.id.txtMovieDescription)
+            val ivImage = itemView.findViewById<ImageView>(R.id.imgMovie)
             // bind data
             tvName.text = restaurant.name
             tvAddress.text = restaurant.address

@@ -14,14 +14,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.android_w1.*
 import com.example.android_w1.databinding.FragmentHomeBinding
-import com.example.android_w1.model.MenuViewModel
-import com.example.android_w1.model.Restaurant
+import com.example.android_w1.viewModel_Adapter.HomeVM
+import com.example.android_w1.viewModel_Adapter.MovieAdapter
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class Home : Fragment(), RestaurantAdapter.OnItemClickListener {
+class Home : Fragment(), MovieAdapter.OnItemClickListener {
     private lateinit var binding : FragmentHomeBinding
-    private lateinit var viewModel : MenuViewModel
-    private lateinit var adapter: RestaurantAdapter
+    private lateinit var viewModel : HomeVM
+    private lateinit var adapter: MovieAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,9 +29,7 @@ class Home : Fragment(), RestaurantAdapter.OnItemClickListener {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater,container,false)
-        viewModel = ViewModelProvider(this).get(MenuViewModel::class.java)
-        setupMenu()
-        registerData()
+        viewModel = ViewModelProvider(this).get(HomeVM::class.java)
         setHasOptionsMenu(true)
         return binding.root
     }
@@ -42,36 +40,29 @@ class Home : Fragment(), RestaurantAdapter.OnItemClickListener {
     }
     override fun onStart() {
         super.onStart()
-        viewModel.loadData()
+        viewModel.getNowPlaying()
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.action_listview -> {
                 val lm = LinearLayoutManager(context)
-                binding.rvRestaurant.layoutManager = lm
+                binding.rvMovie.layoutManager = lm
             }
             R.id.action_gridview -> {
                 val gm = GridLayoutManager(context,2)
-                binding.rvRestaurant.layoutManager = gm
+                binding.rvMovie.layoutManager = gm
             }
         }
 
         return super.onOptionsItemSelected(item)
     }
-    private fun registerData(){
-        viewModel.listOfData.observe(viewLifecycleOwner){
-            adapter.submitList(it)
-        }
-    }
-    private fun setupMenu(){
-        adapter = RestaurantAdapter(this)
-        val lm = LinearLayoutManager(requireContext())
-        binding.rvRestaurant.layoutManager = lm
-        binding.rvRestaurant.adapter = adapter
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setUpMovieList()
+        registerMovieList()
+        registerErrorList()
+        bottomNavigation()
         openProfile()
     }
     private fun openProfile(){
@@ -81,26 +72,36 @@ class Home : Fragment(), RestaurantAdapter.OnItemClickListener {
         }
     }
 
+    private fun setUpMovieList() {
+        adapter = MovieAdapter(this)
+        val lm = LinearLayoutManager(context)
+        binding.rvMovie.layoutManager = lm
+        binding.rvMovie.adapter = adapter
+    }
+
+    private fun registerMovieList() {
+        viewModel.movieData.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
+    }
+
+    private fun registerErrorList() {
+        viewModel.errEvent.observe(viewLifecycleOwner){
+            //show dialog
+        }
+    }
+
     override fun onItemClick(position: Int) {
         val builder = AlertDialog.Builder(requireContext())
-        val dialogLayout =layoutInflater.inflate(R.layout.item_view_restaurant_clicked,null)
-        val tvName = dialogLayout.findViewById<TextView>(R.id.txtRestaurantName)
-        val tvAddress = dialogLayout.findViewById<TextView>(R.id.txtRestaurantAddr)
-        val ivImage = dialogLayout.findViewById<ImageView>(R.id.imgRestaurant)
+        val dialogLayout =layoutInflater.inflate(R.layout.item_view_movie_clicked,null)
+        val tvName = dialogLayout.findViewById<TextView>(R.id.txtMovieName)
+        val tvDesc = dialogLayout.findViewById<TextView>(R.id.txtMovieDescription)
+        val ivImage = dialogLayout.findViewById<ImageView>(R.id.imgMovie)
         tvName.text = RestaurantStore.getDataset()[position].name
-        tvAddress.text = RestaurantStore.getDataset()[position].address
+        tvDesc.text = RestaurantStore.getDataset()[position].address
         Glide.with(dialogLayout).load(RestaurantStore.getDataset()[position].image).into(ivImage)
         with(builder){
-            setTitle("Remove item")
-            setMessage("Do you want to remove this item?")
-            setPositiveButton("Delete"){dialog, which ->
-                val restaurant : ArrayList<Restaurant>  = RestaurantStore.getDataset()
-                restaurant.removeAt(position)
-                adapter.submitList(restaurant)
-                adapter.notifyItemRemoved(position)
-                Toast.makeText(requireContext(),"Xoa item thanh cong", Toast.LENGTH_SHORT).show()
-                dialog.dismiss()
-            }
+            setTitle("${tvName}")
             setNegativeButton("Cancel"){dialog, which ->
                 dialog.dismiss()
             }
@@ -108,21 +109,24 @@ class Home : Fragment(), RestaurantAdapter.OnItemClickListener {
             show()
         }
     }
-    fun bottomNavigation(){
-        BottomNavigationView.OnNavigationItemReselectedListener { item ->
+    private fun bottomNavigation(){
+        binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.now_playing -> {
                     // Respond to navigation item 1 click
                     Toast.makeText(requireContext(),"Now playing clicked", Toast.LENGTH_SHORT).show()
+                    viewModel.getNowPlaying()
                     true
                 }
                 R.id.top_rating -> {
                     // Respond to navigation item 2 click
                     Toast.makeText(requireContext(),"Top rating clicked", Toast.LENGTH_SHORT).show()
+                    viewModel.getTopRatedMovie()
                     true
                 }
                 else -> false
             }
+
         }
     }
 
