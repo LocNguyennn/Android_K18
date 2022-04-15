@@ -1,5 +1,6 @@
 package com.example.android_w1.viewModel_Adapter
 
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -42,7 +43,12 @@ class MovieAdapter(val mListener : OnItemClickListener) : ListAdapter<Movie, Mov
 
         fun binding(item: Movie) {
             binding.txtMovieName.text = item.title?.trim()
+            binding.txtMovieName.ellipsize = TextUtils.TruncateAt.MARQUEE
+            binding.txtMovieName.isSelected = true
             binding.txtMovieDescription.text = item.overview?.trim()
+            binding.txtMovieDescription.ellipsize = TextUtils.TruncateAt.MARQUEE
+            binding.txtMovieDescription.isSelected = true
+
             val urlImage = "https://image.tmdb.org/t/p/w500${item.posterPath}"
             Glide.with(itemView.context).load(urlImage)
                 .into(binding.imgMovie)
@@ -56,5 +62,8 @@ class MovieAdapter(val mListener : OnItemClickListener) : ListAdapter<Movie, Mov
     override fun onBindViewHolder(holder: MovieVH, position: Int) {
         val movie = getItem(position)
         holder.binding(movie)
+    }
+    fun getMovie(position: Int): Movie {
+        return getItem(position);
     }
 }

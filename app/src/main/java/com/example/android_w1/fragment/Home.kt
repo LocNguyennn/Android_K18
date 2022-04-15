@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.android_w1.*
 import com.example.android_w1.databinding.FragmentHomeBinding
+import com.example.android_w1.model.Movie
 import com.example.android_w1.viewModel_Adapter.HomeVM
 import com.example.android_w1.viewModel_Adapter.MovieAdapter
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -97,11 +98,13 @@ class Home : Fragment(), MovieAdapter.OnItemClickListener {
         val tvName = dialogLayout.findViewById<TextView>(R.id.txtMovieName)
         val tvDesc = dialogLayout.findViewById<TextView>(R.id.txtMovieDescription)
         val ivImage = dialogLayout.findViewById<ImageView>(R.id.imgMovie)
-        tvName.text = RestaurantStore.getDataset()[position].name
-        tvDesc.text = RestaurantStore.getDataset()[position].address
-        Glide.with(dialogLayout).load(RestaurantStore.getDataset()[position].image).into(ivImage)
+        val movie : Movie = adapter.getMovie(position)
+        tvName.text = movie.title
+        tvDesc.text = movie.overview
+        val urlImage = "https://image.tmdb.org/t/p/w500${movie.posterPath}"
+        Glide.with(dialogLayout).load(urlImage).into(ivImage)
         with(builder){
-            setTitle("${tvName}")
+            setTitle("${tvName.text}")
             setNegativeButton("Cancel"){dialog, which ->
                 dialog.dismiss()
             }
