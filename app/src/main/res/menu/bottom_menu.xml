@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/now_playing"
-        android:icon="@drawable/ic_star"
+        android:icon="@drawable/ic_video"
         android:title="Now Playing"
         android:enabled="true"
         />
     <item
         android:id="@+id/top_rating"
-        android:icon="@drawable/ic_video"
+        android:icon="@drawable/ic_star"
         android:title="Top Rating"
         android:enabled="true"
         />

@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.314" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/banner.xml" value="0.2615" />
+        <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/bg_iv.xml" value="0.1925" />
+        <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/bg_linear_layout.xml" value="0.133" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/btn_back.xml" value="0.2615" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/elipse1.xml" value="0.2615" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/drawable/elipse2.xml" value="0.2615" />
@@ -37,6 +39,7 @@
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/font/sofia_pro.xml" value="0.34324324324324323" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/asdas.xml" value="0.3171171171171171" />
+        <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/bg_linear_layout.xml" value="0.2765765765765766" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/fragment_onboarding1.xml" value="0.26756756756756755" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/fragment_onboarding2.xml" value="0.26756756756756755" />
@@ -60,6 +63,7 @@
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/profile.xml" value="0.33" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/profile_dialog.xml" value="0.25" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/signup.xml" value="0.3171171171171171" />
+        <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/signup_success_dialog.xml" value="0.25" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/splash.xml" value="0.25" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/txt_box_dialog.xml" value="0.16261261261261262" />
         <entry key="..\:/Bin/mon_hoc/NAM4-HK2/android_class/week1/Android_w1/app/src/main/res/layout/verification_code.xml" value="0.25" />

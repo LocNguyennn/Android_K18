@@ -117,13 +117,13 @@ class Home : Fragment(), MovieAdapter.OnItemClickListener {
             when(item.itemId) {
                 R.id.now_playing -> {
                     // Respond to navigation item 1 click
-                    Toast.makeText(requireContext(),"Now playing clicked", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(requireContext(),"Now playing clicked", Toast.LENGTH_SHORT).show()
                     viewModel.getNowPlaying()
                     true
                 }
                 R.id.top_rating -> {
                     // Respond to navigation item 2 click
-                    Toast.makeText(requireContext(),"Top rating clicked", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(requireContext(),"Top rating clicked", Toast.LENGTH_SHORT).show()
                     viewModel.getTopRatedMovie()
                     true
                 }

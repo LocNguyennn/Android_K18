@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -63,9 +64,8 @@ class SignUpFragment : Fragment() {
                 DataStore(binding.edtFullName.text.toString().trim(),
                     binding.edtEmail.text.toString().trim(),
                     binding.edtPassword.text.toString().trim())
-                Log.e("SignUpFragment:", " mk = ${binding.edtPassword.text.toString().trim()}");
-                findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
-//                findNavController().popBackStack()
+                Log.e("SignUpFragment:", " mk = ${binding.edtPassword.text.toString().trim()}")
+                openSignUpSuccessDialog()
             }
         }
     }
@@ -75,6 +75,19 @@ class SignUpFragment : Fragment() {
             dialog.setTitle("Error")
             dialog.setMessage(errMess)
             dialog.show()
+        }
+    }
+    private fun openSignUpSuccessDialog(){
+        val view = View.inflate(context,R.layout.signup_success_dialog,null)
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setView(view)
+        val dialog = builder.create()
+        dialog.show()
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        view.findViewById<Button>(R.id.btn_done).setOnClickListener{
+            dialog.dismiss()
+            findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
         }
     }
 }
