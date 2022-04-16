@@ -46,4 +46,5 @@ class MySharedPreferences {
     fun isRemembered():Boolean{
         return sharedPreferences.getBoolean(KEY.KEY_REMEMBER_ME.value,false)
     }
+
 }

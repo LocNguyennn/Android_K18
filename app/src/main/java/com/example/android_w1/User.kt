@@ -8,8 +8,5 @@ class User(var fullName : String, var email: String, var password: String) : Par
     fun displayName() : String{
         return "Hi, ${fullName}"
     }
-    fun isNull() : Boolean{
-        return fullName.equals("") && email.equals("") && password.equals("");
-    }
 
 }

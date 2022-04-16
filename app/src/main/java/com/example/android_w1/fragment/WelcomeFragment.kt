@@ -7,13 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.example.android_w1.MySharedPreferences
 import com.example.android_w1.R
 import com.example.android_w1.databinding.FragmentWelcomeBinding
 
 class WelcomeFragment : Fragment() {
 
     lateinit var binding : FragmentWelcomeBinding
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -42,8 +42,8 @@ class WelcomeFragment : Fragment() {
         }
     }
     private fun onLoginSuccess() : Boolean{
-        val sharePreferences = requireActivity().getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
-        return sharePreferences.getBoolean("CHECK",false)
+        val sharePreferences = requireActivity().getSharedPreferences("shared_preference", Context.MODE_PRIVATE)
+        return sharePreferences.getBoolean("KEY_REMEMBER_ME",false)
     }
 
 }

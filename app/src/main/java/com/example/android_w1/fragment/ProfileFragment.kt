@@ -1,7 +1,5 @@
 package com.example.android_w1.fragment
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,35 +10,28 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.android_w1.DataStore
-import com.example.android_w1.R
-import com.example.android_w1.User
-import com.example.android_w1.UserViewModel
+import com.example.android_w1.*
 import com.example.android_w1.databinding.FragmentProfileBinding
+import com.example.android_w1.factory.SignUpProfileViewModelFactory
+import com.example.android_w1.viewModel_Adapter.SignUpProfileViewModel
 
 class ProfileFragment : Fragment() {
-    private lateinit var sharePreferences : SharedPreferences
     private lateinit var binding : FragmentProfileBinding
-    private lateinit var viewModel: UserViewModel
+    private lateinit var viewModel: SignUpProfileViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentProfileBinding.inflate(inflater,container,false)
-        sharePreferences = requireActivity().getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-        val name = sharePreferences.getString("NAME","")
-        val email = sharePreferences.getString("EMAIL","")
-        val password = sharePreferences.getString("PASSWORD","")
+        viewModel = ViewModelProvider(this, SignUpProfileViewModelFactory(activity?.application as MyApp)).get(
+            SignUpProfileViewModel::class.java)
         binding.apply {
-            viewModel.user =
-                User(name.toString(),email.toString(),password.toString())
-            binding.user = viewModel.user
+            binding.user = viewModel.loadUserInfo()
             txtEmail.setOnClickListener {
                 showDialog(txtEmail)
             }
@@ -55,7 +46,6 @@ class ProfileFragment : Fragment() {
     }
 
     private fun showDialog(txtView : TextView){
-        val editor : SharedPreferences.Editor = sharePreferences.edit()
         val builder = AlertDialog.Builder(requireContext())
         val dialogLayout = layoutInflater.inflate(R.layout.profile_dialog,null)
         val txtBox =dialogLayout.findViewById<EditText>(R.id.editText)
@@ -66,23 +56,16 @@ class ProfileFragment : Fragment() {
             setPositiveButton("Save"){dialog, which ->
                 txtView.text = txtBox?.text.toString()
                 if(txtView.hint.equals("Full name")){
-                    viewModel.user.fullName = txtView.text.toString()
-                    editor.putString("NAME",viewModel.user.fullName)
-                    editor.apply()
-                    binding.invalidateAll()
+                    viewModel.saveUserName(txtView.text.toString().trim())
                 }
                 else if(txtView.hint.equals("Email")){
-                    viewModel.user.email = txtView.text.toString()
-                    editor.putString("EMAIL",viewModel.user.email)
-                    editor.apply()
-                    binding.invalidateAll()
+                    viewModel.saveEmail(txtView.text.toString().trim())
                 }
                 else if(txtView.hint.equals("Password")){
-                    viewModel.user.password = txtView.text.toString()
-                    editor.putString("PASSWORD",viewModel.user.password.trim())
-                    editor.apply()
-                    binding.invalidateAll()
+                    viewModel.savePassword(txtView.text.toString().trim())
                 }
+                binding.invalidateAll()
+                binding.user = viewModel.loadUserInfo()
                 dialog.dismiss()
             }
             setNegativeButton("Cancel"){dialog, which ->
@@ -94,12 +77,7 @@ class ProfileFragment : Fragment() {
     }
     private fun setLogOut(){
         binding.btnLogOut.setOnClickListener {
-            val editor : SharedPreferences.Editor = sharePreferences.edit()
-            editor.putString("NAME",viewModel.user.fullName)
-            editor.putString("EMAIL",viewModel.user.email)
-            editor.putString("PASSWORD",viewModel.user.password.trim())
-            editor.putBoolean("CHECK",false)
-            editor.apply()
+            viewModel.rememberMe(false)
             val controller = findNavController()
             controller.navigate(R.id.action_profileFragment_to_welcomeFragment)
         }

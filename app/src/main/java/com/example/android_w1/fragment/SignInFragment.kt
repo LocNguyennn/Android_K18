@@ -1,8 +1,5 @@
 package com.example.android_w1.fragment
 
-import android.content.Context
-import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,33 +13,27 @@ import androidx.navigation.fragment.findNavController
 
 import com.example.android_w1.*
 import com.example.android_w1.databinding.FragmentSignInBinding
+import com.example.android_w1.factory.LoginViewModelFactory
+import com.example.android_w1.factory.SignUpProfileViewModelFactory
+import com.example.android_w1.viewModel_Adapter.LoginViewModel
 
 class SignInFragment : Fragment() {
-    private lateinit var sharePreferences : SharedPreferences
     private lateinit var binding : FragmentSignInBinding
-    private lateinit var viewModel: UserViewModel
+    private lateinit var viewModel: LoginViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        viewModel = ViewModelProvider(this, LoginViewModelFactory(activity?.application as MyApp)).get(
+            LoginViewModel::class.java)
         binding = FragmentSignInBinding.inflate(inflater,container,false)
-        sharePreferences = requireActivity().getSharedPreferences("SHARED_PREF", Context.MODE_PRIVATE)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val name = sharePreferences.getString("NAME","")
-        val email = sharePreferences.getString("EMAIL","")
-        val password = sharePreferences.getString("PASSWORD","")
-        val userPreferences = User(name.toString(),email.toString(),password.toString())
-        if(userPreferences.email.equals(""))
-            viewModel.user = DataStore("","","")
-        else
-            viewModel.user = userPreferences
         binding.apply {
             btnLogin.setOnClickListener {
                 viewModel.checkTrueUser(
@@ -62,13 +53,7 @@ class SignInFragment : Fragment() {
     private fun listenerSuccessEvent() {
         viewModel.isSuccessEvent.observe(viewLifecycleOwner) {
             if (it) {
-                var fullName = viewModel.user.fullName
-                val editor : SharedPreferences.Editor = sharePreferences.edit()
-                editor.putString("NAME",fullName)
-                editor.putString("EMAIL",binding.emailInput.text.toString().trim())
-                editor.putString("PASSWORD",binding.passwordInput.text.toString().trim())
-                editor.putBoolean("CHECK",true)
-                editor.apply()
+                viewModel.rememberMe(true)
                 val controller = findNavController()
                 controller.navigate(R.id.action_signInFragment_to_homeFragment)
             }

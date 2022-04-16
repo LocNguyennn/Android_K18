@@ -10,17 +10,20 @@ import android.widget.Button
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.android_w1.DataStore
+import com.example.android_w1.MyApp
 import com.example.android_w1.R
-import com.example.android_w1.UserViewModel
+import com.example.android_w1.factory.SignUpProfileViewModelFactory
+import com.example.android_w1.viewModel_Adapter.SignUpProfileViewModel
 import com.example.android_w1.databinding.FragmentSignUpBinding
 
 class SignUpFragment : Fragment() {
     private lateinit var binding : FragmentSignUpBinding
-    private lateinit var viewModel: UserViewModel
+    private lateinit var viewModel: SignUpProfileViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        viewModel = ViewModelProvider(this, SignUpProfileViewModelFactory(activity?.application as MyApp)).get(
+            SignUpProfileViewModel::class.java
+        )
     }
 
     override fun onCreateView(
@@ -61,9 +64,11 @@ class SignUpFragment : Fragment() {
     private fun listenerSuccessEvent() {
         viewModel.isSuccessEvent.observe(viewLifecycleOwner) {
             if (it) {
-                DataStore(binding.edtFullName.text.toString().trim(),
+                viewModel.saveUserInfo(
+                    binding.edtFullName.text.toString().trim(),
                     binding.edtEmail.text.toString().trim(),
-                    binding.edtPassword.text.toString().trim())
+                    binding.edtPassword.text.toString().trim()
+                )
                 Log.e("SignUpFragment:", " mk = ${binding.edtPassword.text.toString().trim()}")
                 openSignUpSuccessDialog()
             }
@@ -77,6 +82,7 @@ class SignUpFragment : Fragment() {
             dialog.show()
         }
     }
+
     private fun openSignUpSuccessDialog(){
         val view = View.inflate(context,R.layout.signup_success_dialog,null)
         val builder = AlertDialog.Builder(requireContext())
@@ -90,4 +96,5 @@ class SignUpFragment : Fragment() {
             findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
         }
     }
+
 }

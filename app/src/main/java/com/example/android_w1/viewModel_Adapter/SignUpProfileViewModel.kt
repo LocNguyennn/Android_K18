@@ -1,19 +1,14 @@
-package com.example.android_w1
+package com.example.android_w1.viewModel_Adapter
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.android_w1.MySharedPreferences
+import com.example.android_w1.User
 import java.util.regex.Pattern
 
-enum class Error {
-    ERROR_EMAIL,
-    ERROR_PASSWORD,
-}
 
-class Resp(val isSuccess: Boolean, val error: Error?)
-
-class UserViewModel : ViewModel() {
-    var user: User = User("", "", "")
+class SignUpProfileViewModel(val sharedPrefs: MySharedPreferences) : ViewModel() {
     private var _isSuccessEvent: MutableLiveData<Boolean> = MutableLiveData()
     val isSuccessEvent: LiveData<Boolean>
         get() = _isSuccessEvent
@@ -38,26 +33,6 @@ class UserViewModel : ViewModel() {
         _isSuccessEvent.postValue(true)
     }
 
-    fun checkTrueUser(email: String, password: String) {
-        //kiem tra format email
-        val isTrueEmail = isTrueEmail(email)
-        val isValidEmail = isEmailValid(email)
-        if (!isValidEmail) {
-            _isErrorEvent.postValue("Invalid Email")
-            return
-        } else if (!isTrueEmail) {
-            _isErrorEvent.postValue("Wrong email")
-            return
-        }
-        //password length > 8 && < 10
-        val isTruePassword = isTruePassword(password)
-        if (!isTruePassword) {
-            _isErrorEvent.postValue("Wrong password")
-            return
-        }
-        _isSuccessEvent.postValue(true)
-    }
-
     private fun isEmailValid(email: String): Boolean {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
@@ -66,14 +41,29 @@ class UserViewModel : ViewModel() {
         val regex =
             Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()])(?=\\S+$).{8,}$")
         return regex.matcher(password).matches()
-
+    }
+    fun saveUserInfo(name: String, email : String ,password: String) {
+        saveUserName(name)
+        saveEmail(email)
+        savePassword(password)
+    }
+    fun loadUserInfo() : User {
+        val username = sharedPrefs.getUserName()
+        val password = sharedPrefs.getPassword()
+        val email = sharedPrefs.getEmail()
+        return User(username?:"",email?:"",password?:"")
+    }
+    fun rememberMe(isRemembered : Boolean){
+        sharedPrefs.saveRememberMe(isRemembered)
+    }
+    fun saveUserName(name : String){
+        sharedPrefs.saveUserName(name)
+    }
+    fun saveEmail(email : String){
+        sharedPrefs.saveEmail(email)
+    }
+    fun savePassword(password : String){
+        sharedPrefs.savePassword(password)
     }
 
-    private fun isTrueEmail(email: String): Boolean {
-        return email.equals(user.email)
-    }
-
-    private fun isTruePassword(password: String): Boolean {
-        return password.equals(user.password)
-    }
 }
