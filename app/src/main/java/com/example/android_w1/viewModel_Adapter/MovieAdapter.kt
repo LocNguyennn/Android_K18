@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.android_w1.RestaurantAdapter
 import com.example.android_w1.databinding.ItemViewMovieBinding
 import com.example.android_w1.model.Movie
 
